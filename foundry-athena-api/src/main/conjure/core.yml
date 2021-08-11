@@ -1,0 +1,78 @@
+types:
+  definitions:
+    default-package: com.palantir.foundry.athena.api
+    objects:
+      CatalogLocator:
+        docs: |
+          A resolved view over a table.
+        fields:
+          datasetRid: rid
+          branch: string
+          startTransactionRid: rid
+          endTransactionRid: rid
+
+      Slice:
+        docs: |
+          A slice corresponds to a collection of rows in a Foundry dataset view.
+        alias: any
+
+      FilterValue:
+        union:
+          booleanFilter: boolean
+          stringFilter: string
+          numberFilter: double
+          longFilter: safelong
+          dateTimeFilter:
+            docs: A timestamp represented as microseconds since the Unix Epoch.
+            type: safelong
+
+      NullFilter:
+        fields:
+          column: string
+      ValueFilter:
+        fields:
+          column: string
+          type: FilterType
+          value: FilterValue
+
+      OrFilter:
+        fields:
+          filters: list<Filter>
+
+      AndFilter:
+        fields:
+          filters: list<Filter>
+
+      TrueFilter:
+        fields: {}
+
+      FalseFilter:
+        fields: {}
+
+      NotFilter:
+        fields:
+          filter: Filter
+
+      Filter:
+        union:
+          or: OrFilter
+          and: AndFilter
+          true: TrueFilter
+          false: FalseFilter
+          value: ValueFilter
+          not: NotFilter
+          null: NullFilter
+
+      FilterType:
+        values:
+          - EQUAL_TO
+
+          - GREATER_THAN
+          - GREATER_THAN_OR_EQUAL
+
+          - LESS_THAN_OR_EQUAL
+          - LESS_THAN
+
+          - STRING_CONTAINS
+          - STRING_STARTS_WITH
+          - STRING_ENDS_WITH

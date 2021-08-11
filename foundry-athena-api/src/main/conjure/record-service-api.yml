@@ -1,0 +1,28 @@
+types:
+  conjure-imports:
+    core: core.yml
+  definitions:
+    default-package: com.palantir.foundry.athena.api
+    objects:
+      FetchSliceRequest:
+        fields:
+          columnNames:
+            docs: If present, only return the requested column names.
+            type: optional<list<string>>
+          maxBatchSize:
+            docs: If present, the maximum size in bytes of an Arrow record batch.
+            type: optional<safelong>
+          slice: core.Slice
+
+services:
+  FoundryAthenaRecordService:
+    name: Foundry Athena Record Service
+    package: com.palantir.foundry.athena.api
+    default-auth: header
+    endpoints:
+      fetchSlice:
+        http: POST /slice
+        args:
+          request: FetchSliceRequest
+        returns: binary
+        docs: Gets an entire slice as Arrow record batches.

@@ -1,0 +1,10 @@
+types:
+  definitions:
+    default-package: com.palantir.foundry.athena.api
+    errors:
+      UnsupportedPartitionType:
+        namespace: FoundryAthena
+        code: INVALID_ARGUMENT
+        safe-args:
+          unsupportedType: string
+          precision: optional<any>

@@ -1,0 +1,102 @@
+types:
+  conjure-imports:
+    core: core.yml
+  imports:
+    BigDecimal:
+      external:
+        java: java.math.BigDecimal
+    Schema:
+      external:
+        java: org.apache.arrow.vector.types.pojo.Schema
+  definitions:
+    default-package: com.palantir.foundry.athena.api
+    objects:
+      DateDay:
+        docs: |
+          The Epoch Day equivalent to this date.
+        alias: safelong
+
+      PartitionValue:
+        docs: |
+          Strongly typed values that are compatible with Apache Arrow. Only the subset of types supported in
+          Foundry schemas are available. Note that complex types are not supported as partition values.
+        union:
+          boolean: boolean
+          byte: integer
+          short: integer
+          integer: integer
+          long: safelong
+          float: double
+          double: double
+          decimal: BigDecimal
+          date: DateDay
+          datetime: datetime
+          string: string
+
+      TableName:
+        alias: string
+
+      Partition:
+        alias: map<string, PartitionValue>
+        docs: |
+          A map from column name to the value of that column in the partition.
+
+      GetTableResponse:
+        fields:
+          locator: core.CatalogLocator
+          schema: Schema
+          partitionColumns: set<string>
+
+      GetPartitionsRequest:
+        fields:
+          locator: core.CatalogLocator
+          limit: optional<integer>
+          pageToken: optional<string>
+
+      GetPartitionsResponsePage:
+        fields:
+          partitions: set<Partition>
+          nextPageToken: optional<string>
+
+      GetSlicesRequest:
+        fields:
+          locator: core.CatalogLocator
+          filter:
+            docs: A filter to push down to the dataset before determining slices to be consumed.
+            type: optional<core.Filter>
+          nextPageToken: optional<string>
+
+      GetSlicesResponse:
+        fields:
+          slices: set<core.Slice>
+          nextPageToken: optional<string>
+services:
+  FoundryAthenaMetadataService:
+    name: Foundry Athena Metadata Service
+    docs: |
+      Service for AWS Athena Query Federation MetadataHandler Lambda clients to
+      interface with.
+    package: com.palantir.foundry.athena.api
+    default-auth: header
+    base-path: /metadata
+    endpoints:
+      getTable:
+        http: POST /tables/{tableName}
+        args:
+          tableName: TableName
+        returns: GetTableResponse
+
+      getPartitions:
+        http: POST /partitions
+        args:
+          request: GetPartitionsRequest
+        returns: GetPartitionsResponsePage
+
+      getSlices:
+        http: POST /slices
+        docs: |
+          Obtains the slices for a given partition. If the table is not partitioned this will return all
+          slices for the table.
+        args:
+          request: GetSlicesRequest
+        returns: GetSlicesResponse

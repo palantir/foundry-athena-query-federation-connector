@@ -1,0 +1,73 @@
+/*
+ * (c) Copyright 2020 Palantir Technologies Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.palantir.baseline-class-uniqueness'
+apply plugin: 'com.palantir.external-publish-custom'
+apply plugin: 'com.palantir.external-publish-jar'
+
+dependencies {
+    implementation project(':foundry-athena-api:foundry-athena-api-dialogue')
+    implementation ('com.amazonaws:aws-athena-federation-sdk') {
+        exclude group: 'commons-logging'
+    }
+    implementation 'com.palantir.conjure.java.runtime:conjure-java-jackson-serialization'
+    implementation 'com.palantir.dialogue:dialogue-clients'
+    implementation 'com.palantir.tracing:tracing'
+
+    runtimeOnly 'com.amazonaws:aws-lambda-java-log4j2'
+    runtimeOnly 'org.apache.arrow:arrow-memory-netty'
+    runtimeOnly 'org.apache.logging.log4j:log4j-api'
+    runtimeOnly 'org.apache.logging.log4j:log4j-core'
+    runtimeOnly 'org.apache.logging.log4j:log4j-slf4j-impl'
+
+    testImplementation 'com.palantir.conjure.java.api:test-utils'
+    testImplementation 'org.apache.arrow:arrow-memory-core'
+    testImplementation 'org.apache.arrow:arrow-vector'
+    testImplementation 'org.assertj:assertj-core'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.mockito:mockito-junit-jupiter'
+}
+
+task sourceJar(type: Jar) {
+    dependsOn 'classes'
+    from project.sourceSets.main.allSource
+    classifier 'sources'
+}
+
+task distZip(type: Zip) {
+    from compileJava
+    from processResources
+    into('lib') {
+        from configurations.runtimeClasspath
+    }
+}
+
+externalPublishing {
+    publication('distZip') {
+        artifact tasks.distZip
+    }
+}
+
+task createDeploymentConfig(type: Copy) {
+    from file("${projectDir}/foundry-athena.yaml.template")
+    into file("${projectDir}")
+    filter(org.apache.tools.ant.filters.ReplaceTokens, tokens: [version: project.version])
+    rename 'foundry-athena.yaml.template', 'foundry-athena.yaml'
+}
+
+tasks.jar.dependsOn createDeploymentConfig
+tasks.distZip.dependsOn createDeploymentConfig

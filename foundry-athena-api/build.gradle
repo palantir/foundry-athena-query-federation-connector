@@ -1,0 +1,17 @@
+apply plugin: 'com.palantir.conjure'
+
+conjure {
+    java {
+        useImmutableBytes = true
+        strictObjects = true
+        nonNullCollections = true
+        undertowListenableFutures = true
+    }
+}
+
+project('foundry-athena-api-objects') {
+    dependencies {
+        api 'org.apache.arrow:arrow-vector'
+    }
+}
+
