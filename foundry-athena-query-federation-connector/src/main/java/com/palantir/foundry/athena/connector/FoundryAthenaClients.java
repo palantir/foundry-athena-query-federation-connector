@@ -49,7 +49,7 @@ final class FoundryAthenaClients {
                                                 .toString())
                                         .build())
                         .build()))
-                .withUserAgent(UserAgent.of(Agent.of("athena-lambda", "0.0.0"))); // TODO(ahiggins): real version
+                .withUserAgent(UserAgent.of(Agent.of("athena-lambda", FoundryAthenaVersion.loadFromClasspath())));
         this.metadataService = Suppliers.memoize(
                 () -> dialogueClients.get(FoundryAthenaMetadataServiceBlocking.class, FOUNDRY_ATHENA_SERVICE));
         this.recordService = Suppliers.memoize(() -> {
