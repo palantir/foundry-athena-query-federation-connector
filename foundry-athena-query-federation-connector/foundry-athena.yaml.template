@@ -16,10 +16,10 @@ Parameters:
     Description: 'The S3 bucket where lambda code exists'
     Type: String
   LambdaCodeS3Key:
-    Description: 'The S3 object Key for code jar file'
+    Description: 'The S3 object key for code jar file'
     Type: String
   FoundryUrl:
-    Description: 'The url of the foundry stack (e.g. https://<account>.palantirfoundry.com/).'
+    Description: 'The URL of the Foundry stack (e.g. https://<account>.palantirfoundry.com/).'
     Type: String
   SecretName:
     Description: 'The name of the SecretManager secret that contains the token to be used to make calls to Foundry.'
@@ -40,7 +40,7 @@ Parameters:
     Default: 3008
     Type: Number
   DisableSpillEncryption:
-    Description: 'If set to ''false'' data spilled to S3 is encrypted with AES GCM'
+    Description: 'WARNING: If set to 'true' encryption for spilled data is disabled.'
     Default: 'false'
     Type: String
   SecurityGroupIds:
