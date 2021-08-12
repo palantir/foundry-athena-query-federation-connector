@@ -209,7 +209,7 @@ final class FilterValueConverter implements ArrowTypeVisitor<FilterValue> {
 
     @Override
     public FilterValue visit(Map _type) {
-        throw FoundryAthenaErrors.unsupportedPartitionType("Union", Optional.empty());
+        throw FoundryAthenaErrors.unsupportedPartitionType("Map", Optional.empty());
     }
 
     @Override
