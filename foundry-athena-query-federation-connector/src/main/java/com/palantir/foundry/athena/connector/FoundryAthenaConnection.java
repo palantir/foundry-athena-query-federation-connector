@@ -18,8 +18,6 @@ package com.palantir.foundry.athena.connector;
 
 import com.palantir.logsafe.SafeArg;
 import com.palantir.logsafe.exceptions.SafeRuntimeException;
-import com.palantir.tracing.RandomSampler;
-import com.palantir.tracing.Tracer;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Optional;
@@ -30,7 +28,6 @@ final class FoundryAthenaConnection {
 
     private static final String FOUNDRY_URL = "foundry_url";
     private static final String FOUNDRY_SECRET = "foundry_secret";
-    private static final String TRACE_RATE = "trace_sample_rate";
     private static final String MAX_NUM_STREAMING_RETRIES = "max_num_streaming_retries";
 
     private final FoundryAthenaClients clients;
@@ -43,15 +40,7 @@ final class FoundryAthenaConnection {
 
     public static FoundryAthenaConnection buildFromEnvironmentWithSecretSupplier(
             Function<String, String> secretSupplier) {
-        configureTraceSampling();
         return new FoundryAthenaConnection(buildClients(), buildAuthProvider(secretSupplier));
-    }
-
-    private static void configureTraceSampling() {
-        float traceRate = getOptionalConfigurationFromEnvironment(TRACE_RATE)
-                .map(Float::valueOf)
-                .orElse(0.01f);
-        Tracer.setSampler(RandomSampler.create(traceRate));
     }
 
     private static FoundryAthenaClients buildClients() {
