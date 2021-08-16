@@ -35,7 +35,7 @@ import com.google.common.collect.ImmutableSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings("Slf4jLogsafeArgs")
+@SuppressWarnings({"Slf4jLogsafeArgs", "PreferSafeLogger"})
 public final class FoundryMetadataHandler extends MetadataHandler {
 
     private static final Logger log = LoggerFactory.getLogger(FoundryMetadataHandler.class);
