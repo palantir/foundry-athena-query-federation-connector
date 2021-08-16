@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings("Slf4jLogsafeArgs")
+@SuppressWarnings({"Slf4jLogsafeArgs", "PreferSafeLogger"})
 final class SplitsFetcher {
 
     private static final Logger log = LoggerFactory.getLogger(SplitsFetcher.class);

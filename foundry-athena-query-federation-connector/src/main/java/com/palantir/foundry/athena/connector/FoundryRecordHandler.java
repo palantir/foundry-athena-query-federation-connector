@@ -47,7 +47,7 @@ import org.apache.arrow.vector.types.pojo.Field;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings("Slf4jLogsafeArgs")
+@SuppressWarnings({"Slf4jLogsafeArgs", "PreferSafeLogger"})
 public final class FoundryRecordHandler extends RecordHandler {
 
     private static final Logger log = LoggerFactory.getLogger(FoundryRecordHandler.class);

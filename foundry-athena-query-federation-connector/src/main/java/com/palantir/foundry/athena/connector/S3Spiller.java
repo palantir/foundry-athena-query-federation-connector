@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Similar to {@link S3BlockSpiller} except we only support explicitly spilling blocks.
  */
-@SuppressWarnings("Slf4jLogsafeArgs")
+@SuppressWarnings({"Slf4jLogsafeArgs", "PreferSafeLogger"})
 public final class S3Spiller implements BlockSpiller {
 
     private static final Logger log = LoggerFactory.getLogger(S3Spiller.class);
