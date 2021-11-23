@@ -35,6 +35,7 @@ apply plugin: 'com.palantir.baseline'
 apply plugin: 'com.palantir.external-publish'
 apply plugin: 'com.palantir.git-version'
 apply plugin: 'com.palantir.consistent-versions'
+apply plugin: 'com.palantir.baseline-java-versions'
 
 allprojects {
     apply plugin: 'java-library'
@@ -55,6 +56,8 @@ subprojects {
     }
 
     tasks.check.dependsOn(javadoc)
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+}
+
+javaVersions {
+    libraryTarget = 11
 }
