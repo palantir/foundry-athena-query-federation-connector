@@ -65,7 +65,9 @@ jobs:
       - attach_workspace: { at: /home/circleci }
       - restore_cache: { key: 'gradle-wrapper-v2-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}' }
       - restore_cache: { key: 'check-gradle-cache-v2-{{ checksum "versions.props" }}-{{ checksum "build.gradle" }}' }
-      - run: ./gradlew --parallel --stacktrace --continue check idea -x test
+      - run:
+          command: ./gradlew --parallel --stacktrace --continue check idea -x test
+          no_output_timeout: 50m
       - save_cache:
           key: 'check-gradle-cache-v2-{{ checksum "versions.props" }}-{{ checksum "build.gradle" }}'
           paths: [ ~/.gradle/caches ]
