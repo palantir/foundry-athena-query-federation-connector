@@ -117,7 +117,7 @@ final class FoundryRecordHandlerTest {
 
         ReadRecordsResponse readRecordsResponse = (ReadRecordsResponse) response;
         assertThat(TestUtils.readBlockDataAsColumns(TestConstants.SCHEMA, readRecordsResponse.getRecords()))
-                .isEqualTo(data);
+                .containsExactlyElementsOf(data);
 
         assertThat(s3).isEmpty();
     }
@@ -197,6 +197,6 @@ final class FoundryRecordHandlerTest {
         Block block =
                 new AesGcmBlockCrypto(allocator).decrypt(TestConstants.ENCRYPTION_KEY, bytes, TestConstants.SCHEMA);
         assertThat(TestUtils.readBlockDataAsColumns(TestConstants.SCHEMA, block))
-                .isEqualTo(expected);
+                .containsExactlyElementsOf(expected);
     }
 }
