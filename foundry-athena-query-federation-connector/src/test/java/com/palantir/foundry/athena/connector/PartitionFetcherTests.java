@@ -108,7 +108,7 @@ final class PartitionFetcherTests {
 
         List<List<Object>> expected = ImmutableList.of(ImmutableList.of(1));
         assertThat(TestUtils.readBlockDataAsColumns(PARTITION_BLOCK_SCHEMA, blockSpiller.getBlock()))
-                .isEqualTo(expected);
+                .containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -147,7 +147,7 @@ final class PartitionFetcherTests {
 
         List<List<Object>> expected = ImmutableList.of(ImmutableList.of(1, 3));
         assertThat(TestUtils.readBlockDataAsColumns(PARTITION_BLOCK_SCHEMA, blockSpiller.getBlock()))
-                .isEqualTo(expected);
+                .containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -174,7 +174,7 @@ final class PartitionFetcherTests {
 
         List<List<Object>> expected = ImmutableList.of(ImmutableList.of(1));
         assertThat(TestUtils.readBlockDataAsColumns(PARTITION_BLOCK_SCHEMA, blockSpiller.getBlock()))
-                .isEqualTo(expected);
+                .containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -187,6 +187,6 @@ final class PartitionFetcherTests {
 
         List<List<Object>> expected = ImmutableList.of(ImmutableList.of(1));
         assertThat(TestUtils.readBlockDataAsColumns(UNPARTITIONED_PARTITION_BLOCK_SCHEMA, blockSpiller.getBlock()))
-                .isEqualTo(expected);
+                .containsExactlyElementsOf(expected);
     }
 }
