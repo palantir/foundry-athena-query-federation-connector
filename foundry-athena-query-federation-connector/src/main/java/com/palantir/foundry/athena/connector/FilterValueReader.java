@@ -105,7 +105,7 @@ final class FilterValueReader implements ArrowTypeVisitor<FilterValue> {
 
     @Override
     public FilterValue visit(Date _type) {
-        return FilterValue.numberFilter(fieldReader.readInteger().longValue());
+        return FilterValue.numberFilter((double) fieldReader.readInteger().longValue());
     }
 
     @Override

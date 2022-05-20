@@ -91,7 +91,7 @@ final class FilterValueReaderTests {
         Int type = new Int(64, true);
         long value = 1;
         when(fieldReader.readLong()).thenReturn(value);
-        assertThat(filterValueReader.visit(type)).isEqualTo(FilterValue.numberFilter(value));
+        assertThat(filterValueReader.visit(type)).isEqualTo(FilterValue.numberFilter((double) value));
     }
 
     @Test

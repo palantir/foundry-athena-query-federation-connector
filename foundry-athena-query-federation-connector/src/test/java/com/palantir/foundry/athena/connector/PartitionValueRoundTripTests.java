@@ -81,7 +81,9 @@ final class PartitionValueRoundTripTests {
                         MinorType.SMALLINT.getType(), PartitionValue.short_(1), FilterValue.numberFilter((short) 1)),
                 Arguments.of(MinorType.INT.getType(), PartitionValue.integer(1), FilterValue.numberFilter((int) 1)),
                 Arguments.of(
-                        MinorType.BIGINT.getType(), PartitionValue.long_(SafeLong.of(1)), FilterValue.numberFilter(1L)),
+                        MinorType.BIGINT.getType(),
+                        PartitionValue.long_(SafeLong.of(1)),
+                        FilterValue.numberFilter((double) 1L)),
                 Arguments.of(MinorType.FLOAT4.getType(), PartitionValue.float_(1.1f), FilterValue.numberFilter(1.1f)),
                 Arguments.of(MinorType.FLOAT8.getType(), PartitionValue.double_(1.1), FilterValue.numberFilter(1.1)),
                 Arguments.of(
@@ -91,7 +93,7 @@ final class PartitionValueRoundTripTests {
                 Arguments.of(
                         MinorType.DATEDAY.getType(),
                         PartitionValue.date(DateDay.of(SafeLong.of(10))),
-                        FilterValue.numberFilter(10L)),
+                        FilterValue.numberFilter((double) 10L)),
                 Arguments.of(
                         ArrowType.Utf8.INSTANCE, PartitionValue.string("string"), FilterValue.stringFilter("string")),
                 Arguments.of(
