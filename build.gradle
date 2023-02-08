@@ -21,6 +21,7 @@ buildscript {
     }
 
     dependencies {
+        classpath 'com.palantir.jakartapackagealignment:jakarta-package-alignment:0.3.0'
         classpath 'com.palantir.gradle.jdks:gradle-jdks:0.28.0'
         classpath 'com.palantir.gradle.jdkslatest:gradle-jdks-latest:0.6.0'
         classpath 'com.palantir.javaformat:gradle-palantir-java-format:2.28.0'
@@ -44,6 +45,7 @@ allprojects {
     apply plugin: 'java-library'
     apply plugin: 'com.palantir.java-format'
     apply plugin: 'org.inferred.processors'
+    apply plugin: 'com.palantir.jakarta-package-alignment'
 
     version gitVersion()
     group 'com.palantir.foundry-athena'
