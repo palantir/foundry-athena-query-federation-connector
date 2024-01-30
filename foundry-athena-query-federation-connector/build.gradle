@@ -45,7 +45,7 @@ dependencies {
 task sourceJar(type: Jar) {
     dependsOn 'classes'
     from project.sourceSets.main.allSource
-    classifier 'sources'
+    archiveClassifier = 'sources'
 }
 
 task distZip(type: Zip) {
