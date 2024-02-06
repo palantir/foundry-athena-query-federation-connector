@@ -1,4 +1,4 @@
-# Run ./gradlew --write-locks to regenerate this file
+# Run ./gradlew writeVersionsLock to regenerate this file
 com.amazonaws:aws-athena-federation-sdk:2021.33.1 (1 constraints: ce051d4c)
 com.amazonaws:aws-java-sdk-athena:1.11.800 (1 constraints: 5111dff1)
 com.amazonaws:aws-java-sdk-core:1.11.800 (6 constraints: 8558db64)
