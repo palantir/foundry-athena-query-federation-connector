@@ -68,8 +68,8 @@ public final class TestConstants {
                             ImmutableMap.builder()
                                     .put("type", "parquet")
                                     .put("parquet", ImmutableMap.builder().put("path", "/path/to/file"))
-                                    .build())
-                    .build(),
+                                    .buildOrThrow())
+                    .buildOrThrow(),
             Slice.class);
 
     public static final ObjectMapper OBJECT_MAPPER = ObjectMappers.newClientObjectMapper();
