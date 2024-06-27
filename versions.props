@@ -9,7 +9,7 @@ com.palantir.conjure.java:* = 8.23.0
 com.palantir.conjure.java.api:test-utils = 2.53.0
 com.palantir.dialogue:* = 3.137.0
 org.apache.logging.log4j:* = 2.23.1
-org.junit.jupiter:* = 5.10.2
+org.junit.jupiter:* = 5.10.3
 org.assertj:assertj-core = 3.26.0
 org.mockito:* = 5.12.0
 
