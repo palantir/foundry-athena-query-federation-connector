@@ -6,10 +6,10 @@ com.amazonaws:aws-athena-federation-sdk = 2024.38.1
 com.amazonaws:aws-lambda-java-log4j2 = 1.5.1
 com.palantir.conjure:conjure = 4.48.0
 com.palantir.conjure.java:* = 8.29.0
-com.palantir.conjure.java.api:test-utils = 2.53.0
+com.palantir.conjure.java.api:test-utils = 2.54.0
 com.palantir.dialogue:* = 4.1.0
 org.apache.logging.log4j:* = 2.24.0
-org.junit.jupiter:* = 5.11.2
+org.junit.jupiter:* = 5.11.3
 org.assertj:assertj-core = 3.26.3
 org.mockito:* = 5.14.2
 
