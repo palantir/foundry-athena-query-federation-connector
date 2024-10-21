@@ -1,11 +1,11 @@
 com.fasterxml.jackson.core:jackson-databind = 2.16.1
-com.palantir.conjure.java.runtime:* = 8.15.0
+com.palantir.conjure.java.runtime:* = 8.16.0
 com.palantir.safe-logging:* = 3.7.0
 com.fasterxml.jackson.*:* = 2.16.1
 com.amazonaws:aws-athena-federation-sdk = 2024.38.1
 com.amazonaws:aws-lambda-java-log4j2 = 1.5.1
 com.palantir.conjure:conjure = 4.48.0
-com.palantir.conjure.java:* = 8.29.0
+com.palantir.conjure.java:* = 8.30.0
 com.palantir.conjure.java.api:test-utils = 2.54.0
 com.palantir.dialogue:* = 4.1.0
 org.apache.logging.log4j:* = 2.24.0
