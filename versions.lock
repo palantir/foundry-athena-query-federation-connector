@@ -1,5 +1,5 @@
 # Run ./gradlew writeVersionsLocks to regenerate this file
-com.amazonaws:aws-athena-federation-sdk:2024.42.1 (1 constraints: d105304c)
+com.amazonaws:aws-athena-federation-sdk:2024.42.3 (1 constraints: d305324c)
 com.amazonaws:aws-lambda-java-core:1.2.3 (2 constraints: b61f652f)
 com.amazonaws:aws-lambda-java-log4j2:1.5.1 (1 constraints: 09050036)
 com.fasterxml.jackson.core:jackson-annotations:2.18.0 (10 constraints: b5ad6126)
