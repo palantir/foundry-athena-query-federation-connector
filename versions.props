@@ -1,6 +1,6 @@
 com.fasterxml.jackson.core:jackson-databind = 2.16.1
 com.palantir.conjure.java.runtime:* = 8.18.0
-com.palantir.safe-logging:* = 3.8.0
+com.palantir.safe-logging:* = 3.9.0
 com.fasterxml.jackson.*:* = 2.16.1
 com.amazonaws:aws-athena-federation-sdk = 2025.12.2
 com.amazonaws:aws-lambda-java-log4j2 = 1.5.1
