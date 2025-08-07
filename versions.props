@@ -10,7 +10,7 @@ com.palantir.conjure.java.api:test-utils = 2.62.0
 com.palantir.dialogue:* = 6.4.0
 org.apache.logging.log4j:* = 2.24.0
 org.junit.jupiter:* = 5.13.4
-org.assertj:assertj-core = 3.27.3
+org.assertj:assertj-core = 3.27.4
 org.mockito:* = 5.18.0
 
 # dependency-upgrader:OFF
