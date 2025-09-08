@@ -1,12 +1,11 @@
-# Excavator auto-updates this file. Please contribute improvements to the central template:
-# https://github.palantir.build/foundry/standards/blob/develop/excavator/excavator-config/templates/excavator.yml.template
+# Excavator auto-updates this file. Please contribute improvements to the central template.
 
 auto-label:
   names:
     versions-props/upgrade-all: [ "merge when ready" ]
+    circleci/manage-circleci: [ "merge when ready" ]
   tags:
+    donotmerge: [ "do not merge" ]
     roomba: [ "merge when ready" ]
-    swiffer: [ "merge when ready" ]
     automerge: [ "merge when ready" ]
-    standards: [ "merge when ready" ]
     autorelease: [ "autorelease" ]
