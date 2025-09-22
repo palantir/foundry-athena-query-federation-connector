@@ -1,5 +1,5 @@
 com.fasterxml.jackson.core:jackson-databind = 2.16.1
-com.palantir.conjure.java.runtime:* = 8.24.0
+com.palantir.conjure.java.runtime:* = 8.25.0
 com.palantir.safe-logging:* = 3.9.0
 com.fasterxml.jackson.*:* = 2.16.1
 com.amazonaws:aws-athena-federation-sdk = 2025.37.1
@@ -10,7 +10,7 @@ com.palantir.conjure.java.api:test-utils = 2.65.0
 com.palantir.dialogue:* = 6.9.0
 org.apache.logging.log4j:* = 2.24.0
 org.junit.jupiter:* = 5.13.4
-org.assertj:assertj-core = 3.27.5
+org.assertj:assertj-core = 3.27.6
 org.mockito:* = 5.20.0
 
 # dependency-upgrader:OFF
