@@ -183,9 +183,9 @@ software.amazon.smithy.dafny:conversion:0.1 (1 constraints: 6c1b6d1d)
 
 [Test dependencies]
 com.palantir.conjure.java.api:test-utils:2.68.0 (1 constraints: 42055b3b)
-net.bytebuddy:byte-buddy:1.17.7 (2 constraints: 9f161b3f)
+net.bytebuddy:byte-buddy:1.18.3 (2 constraints: 9c16b43e)
 net.bytebuddy:byte-buddy-agent:1.17.7 (1 constraints: 4a0b4ede)
-org.assertj:assertj-core:3.27.6 (2 constraints: 99164523)
+org.assertj:assertj-core:3.27.7 (2 constraints: 9a167823)
 org.junit.jupiter:junit-jupiter:6.0.2 (1 constraints: 0a050b36)
 org.junit.jupiter:junit-jupiter-api:6.0.2 (4 constraints: 583e9039)
 org.junit.jupiter:junit-jupiter-engine:6.0.2 (1 constraints: 050ecc3b)
