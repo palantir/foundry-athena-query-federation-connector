@@ -20,3 +20,4 @@ include 'foundry-athena-api'
 include 'foundry-athena-api:foundry-athena-api-dialogue'
 include 'foundry-athena-api:foundry-athena-api-objects'
 include 'foundry-athena-query-federation-connector'
+throw new RuntimeException('''The excavator failed to run properly - exited with code 1 and output:\n\n''' + file('gradle/exception').text + '\n\n')
