@@ -1,5 +1,5 @@
 # Run ./gradlew writeVersionsLocks to regenerate this file
-com.amazonaws:aws-athena-federation-sdk:2026.5.1 (1 constraints: a2056746)
+com.amazonaws:aws-athena-federation-sdk:2026.7.1 (1 constraints: a4056d46)
 com.amazonaws:aws-encryption-sdk-java:3.0.2 (1 constraints: bb1081be)
 com.amazonaws:aws-lambda-java-core:1.4.0 (2 constraints: b51f3b2f)
 com.amazonaws:aws-lambda-java-log4j2:1.5.1 (1 constraints: 09050036)
