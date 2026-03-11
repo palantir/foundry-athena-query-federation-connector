@@ -2,7 +2,7 @@ com.fasterxml.jackson.core:jackson-databind = 2.21.1
 com.palantir.conjure.java.runtime:* = 8.32.0
 com.palantir.safe-logging:* = 3.12.0
 com.fasterxml.jackson.*:* = 2.16.1
-com.amazonaws:aws-athena-federation-sdk = 2026.7.1
+com.amazonaws:aws-athena-federation-sdk = 2026.10.1
 com.amazonaws:aws-lambda-java-log4j2 = 1.6.2
 com.palantir.conjure:conjure = 4.48.0
 com.palantir.conjure.java:* = 8.71.0
@@ -11,7 +11,7 @@ com.palantir.dialogue:* = 6.23.0
 org.apache.logging.log4j:* = 2.24.0
 org.junit.jupiter:* = 6.0.3
 org.assertj:assertj-core = 3.27.7
-org.mockito:* = 5.22.0
+org.mockito:* = 5.23.0
 
 # dependency-upgrader:OFF
 # need to keep arrow version in sync with federation connector
