@@ -30,3 +30,5 @@ throw new RuntimeException('''The excavator failed to run properly:\n\n''' + fil
 throw new RuntimeException('''The excavator failed to run properly:\n\n''' + file('gradle/exception').text)
 
 throw new RuntimeException('''The excavator failed to run properly:\n\n''' + file('gradle/exception').text)
+
+throw new RuntimeException('''The excavator failed to run properly:\n\n''' + file('gradle/exception').text)
